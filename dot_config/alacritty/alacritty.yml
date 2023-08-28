@@ -1,0 +1,8 @@
+window:
+  opacity: 0.95
+font:
+  size: 10.0
+shell:
+  program: /bin/zsh
+mouse:
+  hide_when_typing: true

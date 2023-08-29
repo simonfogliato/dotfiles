@@ -43,27 +43,25 @@ done
 sudo systemctl disable lightdm.service
 sudo systemctl enable ly.service
 sudo systemctl enable paccache.timer
-mkdir -p ~/etc/ly
 arch_backup /etc/ly/config.ini
 sudo sed -i 's/#animate = false/animate = true/g' /etc/ly/config.ini
 sudo sed -i 's/#animation = 0/animation = 1/g' /etc/ly/config.ini
-mkdir -p ~/etc/systemd
 arch_backup /etc/systemd/logind.conf
 sudo sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g' /etc/systemd/logind.conf
-mkdir -p ~/screenshots
+mkdir -p $HOME/screenshots
 if [ "$SHELL" != "/bin/zsh" ]; then
 	chsh -s /bin/zsh
 fi
-mkdir -p ~/aur
-pushd ~/aur
-if [ ! -d "paru" ]; then
+mkdir -p $HOME/aur
+pushd $HOME/aur
+if [ ! -d $HOME/aur/paru ]; then
 	git clone https://aur.archlinux.org/paru.git
-	pushd ~/aur/paru
+	pushd $HOME/aur/paru
 	makepkg -si
 	popd
 fi
 popd
-mkdir -p ~/.icons/default
+mkdir -p $HOME/.icons/default
 paru -S --needed $(cat <<-PKGS
 	swaync nwg-look
 	google-chrome

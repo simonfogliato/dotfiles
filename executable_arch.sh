@@ -1,9 +1,16 @@
 #!/bin/bash
 set -ex
-mkdir -p ~/etc
-cp -n /etc/makepkg.conf ~/etc || true
+arch_backup() {
+	if [ ! -e $HOME$1 ]; then
+		mkdir -p $HOME`dirname $1` && cp -n $1 $_
+	fi
+}
+arch_environment() {
+	grep -qxF "$1" /etc/environment || echo "$1" | sudo tee -a /etc/environment
+}
+arch_backup /etc/makepkg.conf
 sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /etc/makepkg.conf
-cp -n /etc/pacman.conf ~/etc || true
+arch_backup /etc/pacman.conf
 sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 sudo pacman -S --needed $(cat <<-PKGS
@@ -17,14 +24,14 @@ sudo pacman -S --needed $(cat <<-PKGS
 	dbeaver remmina freerdp
 PKGS
 )
-cp -n /etc/environment ~/etc || true
-grep -qxF "XDG_CURRENT_DESKTOP=sway" /etc/environment || echo "XDG_CURRENT_DESKTOP=sway" | sudo tee -a /etc/environment
-grep -qxF "QT_QPA_PLATFORM=wayland" /etc/environment || echo "QT_QPA_PLATFORM=wayland" | sudo tee -a /etc/environment
-grep -qxF "QT_QPA_PLATFORMTHEME=qt5ct" /etc/environment || echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
+arch_backup /etc/environment
+arch_environment "XDG_CURRENT_DESKTOP=sway"
+arch_environment "QT_QPA_PLATFORM=wayland"
+arch_environment "QT_QPA_PLATFORMTHEME=qt5ct"
 while [ $# -gt 0 ]; do
 	case $1 in
 		mouse)
-			grep -qxF "WLR_NO_HARDWARE_CURSORS=1" /etc/environment || echo "WLR_NO_HARDWARE_CURSORS=1" | sudo tee -a /etc/environment
+			arch_environment "WLR_NO_HARDWARE_CURSORS=1"
 			;;
 		ssh)
 			sudo pacman -S --needed openssh
@@ -37,11 +44,11 @@ sudo systemctl disable lightdm.service
 sudo systemctl enable ly.service
 sudo systemctl enable paccache.timer
 mkdir -p ~/etc/ly
-cp -n /etc/ly/config.ini ~/etc/ly || true
+arch_backup /etc/ly/config.ini
 sudo sed -i 's/#animate = false/animate = true/g' /etc/ly/config.ini
 sudo sed -i 's/#animation = 0/animation = 1/g' /etc/ly/config.ini
 mkdir -p ~/etc/systemd
-cp -n /etc/systemd/logind.conf ~/etc/systemd || true
+arch_backup /etc/systemd/logind.conf
 sudo sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g' /etc/systemd/logind.conf
 mkdir -p ~/screenshots
 if [ "$SHELL" != "/bin/zsh" ]; then

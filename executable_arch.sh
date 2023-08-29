@@ -62,4 +62,3 @@ paru -S --needed $(cat <<-PKGS
 	google-chrome
 PKGS
 )
-chezmoi init --apply simonfogliato

@@ -65,4 +65,5 @@ paru -S --needed $(cat <<-PKGS
 	google-chrome
 PKGS
 )
+nwg-look -a
 mkdir -p $HOME/screenshots

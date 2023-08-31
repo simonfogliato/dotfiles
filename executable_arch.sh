@@ -48,7 +48,6 @@ sudo sed -i 's/#animate = false/animate = true/g' /etc/ly/config.ini
 sudo sed -i 's/#animation = 0/animation = 1/g' /etc/ly/config.ini
 arch_backup /etc/systemd/logind.conf
 sudo sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g' /etc/systemd/logind.conf
-mkdir -p $HOME/screenshots
 if [ "$SHELL" != "/bin/zsh" ]; then
 	chsh -s /bin/zsh
 fi
@@ -61,9 +60,9 @@ if [ ! -d $HOME/aur/paru ]; then
 	popd
 fi
 popd
-mkdir -p $HOME/.icons/default
 paru -S --needed $(cat <<-PKGS
 	swaync nwg-look
 	google-chrome
 PKGS
 )
+mkdir -p $HOME/screenshots

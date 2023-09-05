@@ -66,7 +66,7 @@ while [ $# -gt 0 ]; do
 			;;
 		print)
 			sudo pacman -S --needed cups cups-filters system-config-printer
-			paru -S samsung-unified-driver
+			paru -S --needed samsung-unified-driver
 			;;
 	esac
 	shift

@@ -24,25 +24,13 @@ sudo pacman -S --needed $(cat <<-PKGS
 	dbeaver remmina freerdp
 PKGS
 )
+sudo systemctl disable lightdm.service
+sudo systemctl enable ly.service
+sudo systemctl enable paccache.timer
 arch_backup /etc/environment
 arch_environment "XDG_CURRENT_DESKTOP=sway"
 arch_environment "QT_QPA_PLATFORM=wayland"
 arch_environment "QT_QPA_PLATFORMTHEME=qt5ct"
-while [ $# -gt 0 ]; do
-	case $1 in
-		mouse)
-			arch_environment "WLR_NO_HARDWARE_CURSORS=1"
-			;;
-		ssh)
-			sudo pacman -S --needed openssh
-			sudo systemctl enable sshd.service
-			;;
-	esac
-	shift
-done
-sudo systemctl disable lightdm.service
-sudo systemctl enable ly.service
-sudo systemctl enable paccache.timer
 arch_backup /etc/ly/config.ini
 sudo sed -i 's/#animate = false/animate = true/g' /etc/ly/config.ini
 sudo sed -i 's/#animation = 0/animation = 1/g' /etc/ly/config.ini
@@ -67,3 +55,19 @@ PKGS
 )
 nwg-look -a
 mkdir -p $HOME/screenshots
+while [ $# -gt 0 ]; do
+	case $1 in
+		mouse)
+			arch_environment "WLR_NO_HARDWARE_CURSORS=1"
+			;;
+		ssh)
+			sudo pacman -S --needed openssh
+			sudo systemctl enable sshd.service
+			;;
+		print)
+			sudo pacman -S --needed cups cups-filters system-config-printer
+			paru -S samsung-unified-driver
+			;;
+	esac
+	shift
+done

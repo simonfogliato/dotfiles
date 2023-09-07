@@ -19,7 +19,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu j4-dmenu-desktop --dmenu="dmenu -i -nf '#00AA00' -nb '#1d1f21' -sb '#006600' -sf '#00FF00' -fn 'hack-10' -p '~ % '" | xargs swaymsg exec --
+set $menu j4-dmenu-desktop --dmenu="dmenu -i -nf '#00AA00' -nb '#1d1f21' -sb '#00AA00' -sf '#000000' -fn 'hack-10' -p '~ % '" | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -228,26 +228,24 @@ bar {
     # The default just shows the current date and time.
     status_command while ~/.config/sway/status.sh; do sleep 1; done
 
-    # <colorclass> <border> <background> <text>
     colors {
         statusline #00AA00
         background #1d1f21F2
         separator  #666666
-        focused_workspace  #00AA00 #006600 #00FF00
-        active_workspace   #333333 #5F676A #FFFFFF
-        inactive_workspace #33333300 #22222200 #00AA00
-        urgent_workspace   #2F343A #FFFF00 #000000
-        binding_mode       #2F343A #FFFF00 #000000
+        focused_workspace  #00AA00F2 #00AA00F2 #000000
+        active_workspace   #AA00AAF2 #AA00AAF2 #000000
+        inactive_workspace #006600F2 #006600F2 #000000
+        urgent_workspace   #FFFF00 #FFFF00 #000000
+        binding_mode       #FFFF00 #FFFF00 #000000
     }
 }
 
-# <colorclass> <border> <background> <text> <indicator> <child_border>
 # class                 border  bground text    indicator child_border
-client.focused          #00AA00 #00AA00 #FFFFFF #FFFF00   #00AA00
-client.focused_inactive #333332 #AAAA00 #FFFFFF #FFFF00   #AAAA00
-client.unfocused        #333333 #006600 #888888 #FFFF00   #006600
-client.urgent           #2F343A #FFFF00 #000000 #FFFF00   #FFFF00
-client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+client.focused          #00AA00 #00AA00 #000000 #FFFF00   #00AA00
+client.focused_inactive #006600 #006600 #000000 #006600   #006600
+client.unfocused        #006600 #006600 #000000 #006600   #006600
+client.urgent           #FFFF00 #FFFF00 #000000 #FFFF00   #FFFF00
+client.placeholder      #0C0C0C #0C0C0C #FFFFFF #0C0C0C   #0C0C0C
 client.background       #FFFFFF
 font pango:hack 8
 hide_edge_borders smart

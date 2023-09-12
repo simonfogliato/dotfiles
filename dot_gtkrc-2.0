@@ -3,7 +3,7 @@
 
 include "/home/sfogliato/.gtkrc-2.0.mine"
 gtk-theme-name="Adwaita-dark"
-gtk-icon-theme-name="HighContrast"
+gtk-icon-theme-name="BeautyLine"
 gtk-font-name="Hack 10"
 gtk-cursor-theme-name="ComixCursors-Green"
 gtk-cursor-theme-size=24

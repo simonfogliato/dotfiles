@@ -49,7 +49,7 @@ if [ ! -d $HOME/aur/paru ]; then
 fi
 popd
 paru -S --needed $(cat <<-PKGS
-	swaync nwg-look
+	swaync nwg-look beautyline
 	google-chrome
 PKGS
 )

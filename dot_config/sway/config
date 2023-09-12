@@ -19,7 +19,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu j4-dmenu-desktop --dmenu="dmenu -i -nf '#00AA00' -nb '#1d1f21' -sb '#00AA00' -sf '#000000' -fn 'hack-10' -p '~ % '" | xargs swaymsg exec --
+set $menu wofi -I -i -S drun -O alphabetical | xargs swaymsg exec --
 
 ### Output configuration
 #

@@ -19,7 +19,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi -I -i -S drun -O alphabetical | xargs swaymsg exec --
+set $menu fuzzel | xargs swaymsg exec --
 
 ### Output configuration
 #

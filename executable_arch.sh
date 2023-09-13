@@ -15,7 +15,7 @@ sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 sudo pacman -S --needed $(cat <<-PKGS
 	ly git base-devel pacman-contrib inetutils man-db man-pages
-	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr wofi
+	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel
 	brightnessctl grim slurp copyq network-manager-applet
 	qt5ct gnome-themes-extra ttf-hack xcursor-comix archlinux-wallpaper
 	neovim neofetch alacritty meld zsh grml-zsh-config chezmoi rsync tmux

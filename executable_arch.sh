@@ -19,7 +19,7 @@ sudo pacman -S --needed $(cat <<-PKGS
 	brightnessctl grim slurp copyq network-manager-applet
 	qt5ct gnome-themes-extra ttf-hack xcursor-comix archlinux-wallpaper
 	neovim neofetch alacritty meld zsh grml-zsh-config chezmoi rsync tmux
-	vlc yt-dlp firefox pcmanfm-gtk3 lximage-qt qt5-imageformats
+	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog
 	virtualbox virtualbox-host-modules-arch
 	dbeaver remmina freerdp
 PKGS

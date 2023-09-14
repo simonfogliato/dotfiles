@@ -13,7 +13,7 @@ sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /etc/makepkg.conf
 arch_backup /etc/pacman.conf
 sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
-sudo pacman -S --needed $(cat <<-PKGS
+sudo pacman -Syu --needed $(cat <<-PKGS
 	ly git base-devel pacman-contrib inetutils man-db man-pages
 	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel
 	brightnessctl grim slurp copyq network-manager-applet
@@ -48,7 +48,7 @@ if [ ! -d $HOME/aur/paru ]; then
 	popd
 fi
 popd
-paru -S --needed $(cat <<-PKGS
+paru -Syu --needed $(cat <<-PKGS
 	swaync nwg-look beautyline
 	google-chrome
 PKGS
@@ -61,12 +61,12 @@ while [ $# -gt 0 ]; do
 			arch_environment "WLR_NO_HARDWARE_CURSORS=1"
 			;;
 		ssh)
-			sudo pacman -S --needed openssh
+			sudo pacman -Syu --needed openssh
 			sudo systemctl enable sshd.service
 			;;
 		print)
-			sudo pacman -S --needed cups cups-filters system-config-printer
-			paru -S --needed samsung-unified-driver
+			sudo pacman -Syu --needed cups cups-filters system-config-printer
+			paru -Syu --needed samsung-unified-driver
 			;;
 	esac
 	shift

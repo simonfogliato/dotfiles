@@ -18,7 +18,8 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel
 	brightnessctl grim slurp copyq network-manager-applet
 	qt5ct gnome-themes-extra ttf-hack xcursor-comix archlinux-wallpaper
-	neovim neofetch alacritty meld zsh grml-zsh-config chezmoi rsync tmux
+	zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
+	neovim neofetch alacritty meld chezmoi rsync tmux
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog
 	virtualbox virtualbox-host-modules-arch
 	dbeaver remmina freerdp

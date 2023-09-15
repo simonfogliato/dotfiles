@@ -1,1 +1,6 @@
 neofetch
+alias ls="/usr/bin/lsd --group-dirs first"
+alias ll="ls -l"
+alias cat="/usr/bin/bat"
+alias man="/usr/bin/batman"
+alias diff="/usr/bin/batdiff"

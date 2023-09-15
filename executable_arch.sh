@@ -19,13 +19,12 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	brightnessctl grim slurp copyq network-manager-applet
 	qt5ct gnome-themes-extra ttf-hack xcursor-comix archlinux-wallpaper
 	zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
-	neovim neofetch alacritty meld chezmoi rsync tmux
+	neovim neofetch alacritty meld chezmoi rsync tmux ranger
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog
 	virtualbox virtualbox-host-modules-arch
 	dbeaver remmina freerdp
 PKGS
 )
-sudo systemctl disable lightdm.service
 sudo systemctl enable ly.service
 sudo systemctl enable paccache.timer
 arch_backup /etc/environment

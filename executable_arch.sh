@@ -13,9 +13,6 @@ sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /etc/makepkg.conf
 arch_backup /etc/pacman.conf
 sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
-arch_backup /etc/pacman.d/mirrorlist
-arch_backup /etc/xdg/reflector/reflector.conf
-sudo sed -i "s/# --country France,Germany/--country 'Canada,United States'/g" /etc/xdg/reflector/reflector.conf
 sudo pacman -Syu --needed $(cat <<-PKGS
 	ly git base-devel pacman-contrib inetutils man-db man-pages reflector
 	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel
@@ -28,6 +25,9 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	dbeaver remmina freerdp
 PKGS
 )
+arch_backup /etc/pacman.d/mirrorlist
+arch_backup /etc/xdg/reflector/reflector.conf
+sudo sed -i "s/# --country France,Germany/--country 'Canada,United States'/g" /etc/xdg/reflector/reflector.conf
 sudo systemctl enable ly.service
 sudo systemctl enable paccache.timer
 sudo systemctl enable reflector.timer

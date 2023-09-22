@@ -13,8 +13,11 @@ sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /etc/makepkg.conf
 arch_backup /etc/pacman.conf
 sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
+arch_backup /etc/pacman.d/mirrorlist
+arch_backup /etc/xdg/reflector/reflector.conf
+sudo sed -i "s/# --country France,Germany/--country 'Canada,United States'/g" /etc/xdg/reflector/reflector.conf
 sudo pacman -Syu --needed $(cat <<-PKGS
-	ly git base-devel pacman-contrib inetutils man-db man-pages
+	ly git base-devel pacman-contrib inetutils man-db man-pages reflector
 	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel
 	brightnessctl grim slurp copyq network-manager-applet
 	qt5ct gnome-themes-extra ttf-hack ttf-hack-nerd xcursor-comix archlinux-wallpaper
@@ -27,6 +30,7 @@ PKGS
 )
 sudo systemctl enable ly.service
 sudo systemctl enable paccache.timer
+sudo systemctl enable reflector.timer
 arch_backup /etc/environment
 arch_environment "XDG_CURRENT_DESKTOP=sway"
 arch_environment "QT_QPA_PLATFORM=wayland"

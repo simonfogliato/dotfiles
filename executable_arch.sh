@@ -1,8 +1,8 @@
 #!/bin/bash
 set -ex
 arch_backup() {
-	if [ ! -e $HOME$1 ]; then
-		mkdir -p $HOME`dirname $1` && cp -n $1 $_
+	if [ ! -e $HOME/arch/$1 ]; then
+		mkdir -p $HOME/arch/`dirname $1` && cp -n $1 $_
 	fi
 }
 arch_environment() {
@@ -40,6 +40,8 @@ sudo sed -i 's/#animate = false/animate = true/g' /etc/ly/config.ini
 sudo sed -i 's/#animation = 0/animation = 1/g' /etc/ly/config.ini
 arch_backup /etc/systemd/logind.conf
 sudo sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g' /etc/systemd/logind.conf
+arch_backup /usr/share/qt5ct/colors/darker.conf
+sudo sed -i 's/#ff12608a,/#ff00aa00,/g' /usr/share/qt5ct/colors/darker.conf
 if [ "$SHELL" != "/bin/zsh" ]; then
 	chsh -s /bin/zsh
 fi

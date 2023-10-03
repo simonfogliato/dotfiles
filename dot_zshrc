@@ -1,8 +1,9 @@
 neofetch
 alias ls="/usr/bin/lsd --group-dirs first"
+alias la="ls -la"
 alias ll="ls -l"
-alias la="ll"
-alias l="ll"
+alias lh="ls -hAl"
+alias l="ls -l"
 alias cat="/usr/bin/bat"
 alias man="/usr/bin/batman"
 alias diff="/usr/bin/batdiff"

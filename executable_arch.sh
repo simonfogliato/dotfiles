@@ -19,7 +19,7 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	brightnessctl grim slurp copyq network-manager-applet
 	qt5ct gnome-themes-extra ttf-hack ttf-hack-nerd xcursor-comix archlinux-wallpaper
 	zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
-	neovim neofetch alacritty meld chezmoi rsync tmux ranger ncdu
+	neovim neofetch alacritty meld chezmoi rsync tmux ranger ncdu zip unzip
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog
 	virtualbox virtualbox-host-modules-arch
 	dbeaver remmina freerdp

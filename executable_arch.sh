@@ -35,6 +35,8 @@ arch_backup /etc/environment
 arch_environment "XDG_CURRENT_DESKTOP=sway"
 arch_environment "QT_QPA_PLATFORM=wayland"
 arch_environment "QT_QPA_PLATFORMTHEME=qt5ct"
+arch_environment "EDITOR=nvim"
+arch_environment "VISUAL=nvim"
 arch_backup /etc/ly/config.ini
 sudo sed -i 's/#animate = false/animate = true/g' /etc/ly/config.ini
 sudo sed -i 's/#animation = 0/animation = 1/g' /etc/ly/config.ini

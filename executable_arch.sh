@@ -76,6 +76,12 @@ while [ $# -gt 0 ]; do
 			sudo pacman -Syu --needed cups cups-filters system-config-printer
 			paru -Syu --needed samsung-unified-driver
 			;;
+		uefi)
+			sudo pacman -Syu --needed fwupd
+			fwupdmgr refresh
+			fwupdmgr get-updates
+			fwupdmgr update
+			;;
 	esac
 	shift
 done

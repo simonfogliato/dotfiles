@@ -265,6 +265,7 @@ bindsym Print exec --no-startup-id grim ~/screenshots/screenshot_$(date +'%Y%m%d
 bindsym $mod+Print exec --no-startup-id grim -g "$(slurp)" ~/screenshots/screenshot_$(date +'%Y%m%d_%H%M%S_%N').png
 bindsym $mod+Shift+n exec --no-startup-id swaync-client -d
 bindsym $mod+n exec --no-startup-id swaync-client -t -sw
+bindsym $mod+q exec --no-startup-id swaylock
 exec --no-startup-id swaync
 exec --no-startup-id nm-applet --indicator
 exec --no-startup-id copyq --start-server

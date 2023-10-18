@@ -16,8 +16,8 @@ sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 sudo pacman -Syu --needed $(cat <<-PKGS
 	ly git base-devel pacman-contrib inetutils man-db man-pages reflector
 	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel
-	brightnessctl grim slurp copyq network-manager-applet
-	qt5ct gnome-themes-extra ttf-hack ttf-hack-nerd xcursor-comix archlinux-wallpaper
+	brightnessctl grim slurp copyq network-manager-applet archlinux-wallpaper
+	qt5ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
 	zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
 	neovim neofetch alacritty meld chezmoi rsync tmux ranger ncdu zip unzip
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog
@@ -42,8 +42,14 @@ sudo sed -i 's/#animate = false/animate = true/g' /etc/ly/config.ini
 sudo sed -i 's/#animation = 0/animation = 1/g' /etc/ly/config.ini
 arch_backup /etc/systemd/logind.conf
 sudo sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g' /etc/systemd/logind.conf
-arch_backup /usr/share/qt5ct/colors/darker.conf
-sudo sed -i 's/#ff12608a,/#ff00aa00,/g' /usr/share/qt5ct/colors/darker.conf
+sudo rm -f /usr/share/qt5ct/colors/darker_green.conf
+sudo cp /usr/share/qt5ct/colors/darker.conf /usr/share/qt5ct/colors/darker_green.conf
+sudo sed -i 's/#ff12608a,/#ff00aa00,/g' /usr/share/qt5ct/colors/darker_green.conf
+sudo rm -rf /usr/share/themes/Breeze-Dark-Green
+sudo cp -r /usr/share/themes/Breeze-Dark /usr/share/themes/Breeze-Dark-Green
+sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-2.0/gtkrc
+sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-3.0/gtk.css
+sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-4.0/gtk.css
 if [ "$SHELL" != "/bin/zsh" ]; then
 	chsh -s /bin/zsh
 fi

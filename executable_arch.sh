@@ -1,8 +1,8 @@
 #!/bin/bash
 set -ex
 arch_backup() {
-	if [ ! -e $HOME/arch/$1 ]; then
-		mkdir -p $HOME/arch/`dirname $1` && cp -n $1 $_
+	if [ ! -e $HOME/arch$1 ]; then
+		mkdir -p $HOME/arch`dirname $1` && cp -n $1 $_
 	fi
 }
 arch_environment() {

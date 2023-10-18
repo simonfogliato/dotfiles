@@ -50,6 +50,8 @@ sudo cp -r /usr/share/themes/Breeze-Dark /usr/share/themes/Breeze-Dark-Green
 sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-2.0/gtkrc
 sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-3.0/gtk.css
 sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-4.0/gtk.css
+cp /usr/share/color-schemes/BreezeDark.colors $HOME/.config/kdeglobals
+sed -i 's/61,174,233/0,170,0/g' $HOME/.config/kdeglobals
 if [ "$SHELL" != "/bin/zsh" ]; then
 	chsh -s /bin/zsh
 fi

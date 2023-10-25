@@ -20,7 +20,7 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	qt5ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
 	zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
 	neovim neofetch alacritty meld chezmoi rsync tmux ranger ncdu zip unzip
-	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog
+	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
 	virtualbox virtualbox-host-modules-arch
 	dbeaver remmina freerdp
 PKGS
@@ -52,6 +52,7 @@ sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-3.0/gt
 sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-4.0/gtk.css
 cp /usr/share/color-schemes/BreezeDark.colors $HOME/.config/kdeglobals
 sed -i 's/61,174,233/0,170,0/g' $HOME/.config/kdeglobals
+magick /usr/share/backgrounds/archlinux/gritty.png -modulate 100,100,50 $HOME/.config/sway/gritty_green.png
 if [ "$SHELL" != "/bin/zsh" ]; then
 	chsh -s /bin/zsh
 fi

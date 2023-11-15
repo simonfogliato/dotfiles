@@ -22,7 +22,7 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	neovim neofetch alacritty meld chezmoi rsync tmux ranger ncdu zip unzip
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
 	virtualbox virtualbox-host-modules-arch
-	dbeaver remmina freerdp
+	dbeaver remmina freerdp doxygen graphviz plantuml
 PKGS
 )
 arch_backup /etc/pacman.d/mirrorlist

@@ -21,7 +21,6 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
 	neovim neofetch alacritty meld chezmoi rsync tmux ranger ncdu zip unzip
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
-	virtualbox virtualbox-host-modules-arch
 	dbeaver remmina freerdp doxygen graphviz plantuml libreoffice-fresh
 PKGS
 )
@@ -90,6 +89,17 @@ while [ $# -gt 0 ]; do
 			fwupdmgr refresh
 			fwupdmgr get-updates
 			fwupdmgr update
+			;;
+		vb)
+			sudo pacman -Syu --needed virtualbox virtualbox-host-modules-arch
+			;;
+		vb-lts)
+			sudo pacman -Syu --needed virtualbox virtualbox-host-dkms linux-lts-headers
+			;;
+		kvm)
+			sudo pacman -Syu --needed virt-manager qemu libvirt iptables-nft dnsmasq
+			sudo systemctl enable libvirtd.service
+			sudo usermod -a -G libvirt $(whoami)
 			;;
 	esac
 	shift

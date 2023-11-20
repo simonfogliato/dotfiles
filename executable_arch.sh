@@ -100,11 +100,6 @@ while [ $# -gt 0 ]; do
 			sudo pacman -Syu --needed virt-manager qemu libvirt iptables-nft dnsmasq
 			sudo systemctl enable libvirtd.service
 			sudo usermod -a -G libvirt $(whoami)
-			if [ ! -d /var/lib/libvirt/images_arch ]; then
-				sudo mv /var/lib/libvirt/images /var/lib/libvirt/images_arch
-				mkdir -p $HOME/images
-				sudo ln -s $HOME/images /var/lib/libvirt/images
-			fi
 			;;
 	esac
 	shift

@@ -55,11 +55,11 @@ magick /usr/share/backgrounds/archlinux/gritty.png -modulate 100,100,50 $HOME/.c
 if [ "$SHELL" != "/bin/zsh" ]; then
 	chsh -s /bin/zsh
 fi
-mkdir -p $HOME/aur
-pushd $HOME/aur
-if [ ! -d $HOME/aur/paru ]; then
+mkdir -p $HOME/arch/aur
+pushd $HOME/arch/aur
+if [ ! -d $HOME/arch/aur/paru ]; then
 	git clone https://aur.archlinux.org/paru.git
-	pushd $HOME/aur/paru
+	pushd $HOME/arch/aur/paru
 	makepkg -si
 	popd
 fi
@@ -100,6 +100,7 @@ while [ $# -gt 0 ]; do
 			sudo pacman -Syu --needed virt-manager qemu libvirt iptables-nft dnsmasq
 			sudo systemctl enable libvirtd.service
 			sudo usermod -a -G libvirt $(whoami)
+			sudo virsh net-autostart default
 			;;
 	esac
 	shift

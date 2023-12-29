@@ -9,3 +9,13 @@ program = "/bin/zsh"
 
 [window]
 opacity = 0.95
+
+[colors.primary]
+background = "#000F00"
+foreground = "#00FF00"
+
+[colors.cursor]
+cursor = "#00FF00"
+
+[selection]
+save_to_clipboard = true

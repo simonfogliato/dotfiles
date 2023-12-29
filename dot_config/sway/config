@@ -230,7 +230,7 @@ bar {
 
     colors {
         statusline #00AA00
-        background #1d1f21F2
+        background #000F00F2
         separator  #666666
         focused_workspace  #00AA00F2 #00AA00F2 #000000
         active_workspace   #AA00AAF2 #AA00AAF2 #000000

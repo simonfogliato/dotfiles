@@ -1,0 +1,11 @@
+[font]
+size = 10.0
+
+[mouse]
+hide_when_typing = true
+
+[shell]
+program = "/bin/zsh"
+
+[window]
+opacity = 0.95

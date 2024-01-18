@@ -254,21 +254,21 @@ gaps outer 0
 smart_gaps on
 default_border pixel 2
 default_floating_border pixel 2
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%; exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 100%
-bindsym $mod+XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 1%
-bindsym $mod+XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-bindsym Print exec --no-startup-id grim ~/screenshots/screenshot_$(date +'%Y%m%d_%H%M%S_%N').png
-bindsym $mod+Print exec --no-startup-id grim -g "$(slurp)" ~/screenshots/screenshot_$(date +'%Y%m%d_%H%M%S_%N').png
-bindsym $mod+Shift+n exec --no-startup-id swaync-client -d
-bindsym $mod+n exec --no-startup-id swaync-client -t -sw
-bindsym $mod+q exec --no-startup-id swaylock
-exec --no-startup-id swaync
-exec --no-startup-id nm-applet --indicator
-exec --no-startup-id copyq --start-server
+bindsym $mod+XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 100%; exec wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86MonBrightnessUp exec brightnessctl set 100%
+bindsym $mod+XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 1%
+bindsym $mod+XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym Print exec grim ~/screenshots/screenshot_$(date +'%Y%m%d_%H%M%S_%N').png
+bindsym $mod+Print exec grim -g "$(slurp)" ~/screenshots/screenshot_$(date +'%Y%m%d_%H%M%S_%N').png
+bindsym $mod+Shift+n exec swaync-client -d
+bindsym $mod+n exec swaync-client -t -sw
+bindsym $mod+q exec swaylock
+exec swaync
+exec nm-applet --indicator
+exec copyq --start-server
 
 include /etc/sway/config.d/*

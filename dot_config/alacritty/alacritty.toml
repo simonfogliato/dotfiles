@@ -10,12 +10,33 @@ program = "/bin/zsh"
 [window]
 opacity = 0.95
 
-[colors.primary]
-background = "#000F00"
-foreground = "#00FF00"
-
-[colors.cursor]
-cursor = "#00FF00"
-
 [selection]
 save_to_clipboard = true
+
+[colors.primary]
+background = '#000f00'
+foreground = '#00aa00'
+
+[colors.cursor]
+text = '#000000'
+cursor = '#00ff00'
+
+[colors.normal]
+black   = '#000000'
+red     = '#aa0000'
+green   = '#00aa00'
+yellow  = '#aaaa00'
+blue    = '#3333aa'
+magenta = '#aa00aa'
+cyan    = '#00aaaa'
+white   = '#aaaaaa'
+
+[colors.bright]
+black   = '#333333'
+red     = '#ff0000'
+green   = '#00ff00'
+yellow  = '#ffff00'
+blue    = '#3333ff'
+magenta = '#ff00ff'
+cyan    = '#00ffff'
+white   = '#ffffff'

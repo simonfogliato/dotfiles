@@ -267,6 +267,7 @@ bindsym $mod+Print exec grim -g "$(slurp)" ~/screenshots/screenshot_$(date +'%Y%
 bindsym $mod+Shift+n exec swaync-client -d
 bindsym $mod+n exec swaync-client -t -sw
 bindsym $mod+q exec swaylock
+bindsym $mod+m output "HDMI-A-1" toggle
 exec swaync
 exec nm-applet --indicator
 exec copyq --start-server

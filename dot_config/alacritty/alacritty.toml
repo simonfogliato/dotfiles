@@ -29,10 +29,10 @@ yellow  = '#ffff00'
 blue    = '#0033ff'
 magenta = '#ff00ff'
 cyan    = '#00ffff'
-white   = '#ffffff'
+white   = '#d0d0d0'
 
 [colors.bright]
-black   = '#000000'
+black   = '#808080'
 red     = '#ff0000'
 green   = '#00ff00'
 yellow  = '#ffff00'

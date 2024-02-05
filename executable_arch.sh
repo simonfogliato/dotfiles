@@ -21,7 +21,7 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
 	neovim neofetch alacritty meld chezmoi rsync tmux ranger ncdu zip unzip cloc
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
-	dbeaver remmina freerdp doxygen graphviz plantuml libreoffice-fresh
+	dbeaver remmina libvncserver freerdp doxygen graphviz plantuml libreoffice-fresh
 PKGS
 )
 arch_backup /etc/pacman.d/mirrorlist

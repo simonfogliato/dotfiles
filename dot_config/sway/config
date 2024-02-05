@@ -232,9 +232,9 @@ bar {
         statusline #00AA00
         background #000F00F2
         separator  #666666
-        focused_workspace  #00AA00F2 #00AA00F2 #000000
-        active_workspace   #AA00AAF2 #AA00AAF2 #000000
-        inactive_workspace #006600F2 #006600F2 #000000
+        focused_workspace  #00FF00F2 #00FF00F2 #000000
+        active_workspace   #FF00FFF2 #FF00FFF2 #000000
+        inactive_workspace #2E8B57F2 #2E8B57F2 #000000
         urgent_workspace   #FFFF00 #FFFF00 #000000
         binding_mode       #FFFF00 #FFFF00 #000000
     }
@@ -242,8 +242,8 @@ bar {
 
 # class                 border  bground text    indicator child_border
 client.focused          #00AA00 #00AA00 #000000 #FFFF00   #00AA00
-client.focused_inactive #006600 #006600 #000000 #006600   #006600
-client.unfocused        #006600 #006600 #000000 #006600   #006600
+client.focused_inactive #2E8B57 #2E8B57 #000000 #2E8B57   #2E8B57
+client.unfocused        #2E8B57 #2E8B57 #000000 #2E8B57   #2E8B57
 client.urgent           #FFFF00 #FFFF00 #000000 #FFFF00   #FFFF00
 client.placeholder      #0C0C0C #0C0C0C #FFFFFF #0C0C0C   #0C0C0C
 client.background       #FFFFFF

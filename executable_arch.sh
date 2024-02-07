@@ -86,6 +86,9 @@ while [ $# -gt 0 ]; do
 			sudo pacman -Syu --needed cups cups-filters system-config-printer
 			paru -Syu --needed samsung-unified-driver
 			;;
+		webex)
+			paru -Syu --needed webex-bin
+			;;
 		uefi)
 			sudo pacman -Syu --needed fwupd
 			fwupdmgr refresh
@@ -103,6 +106,10 @@ while [ $# -gt 0 ]; do
 			sudo systemctl enable libvirtd.service
 			sudo usermod -a -G libvirt $(whoami)
 			sudo virsh net-autostart default
+			;;
+		docker)
+			sudo pacman -Syu --needed docker docker-compose
+			sudo systemctl enable docker.service
 			;;
 	esac
 	shift

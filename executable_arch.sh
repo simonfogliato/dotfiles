@@ -13,20 +13,22 @@ sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /etc/makepkg.conf
 arch_backup /etc/pacman.conf
 sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
+arch_backup /etc/pacman.d/mirrorlist
+sudo pacman -Syu --needed reflector
+arch_backup /etc/xdg/reflector/reflector.conf
+sudo sed -i "s/# --country France,Germany/--country 'Canada,United States'/g" /etc/xdg/reflector/reflector.conf
+sudo systemctl start reflector.service
 sudo pacman -Syu --needed $(cat <<-PKGS
-	ly git base-devel pacman-contrib inetutils man-db man-pages reflector
+	ly git base-devel pacman-contrib inetutils man-db man-pages
 	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel
 	brightnessctl grim slurp copyq network-manager-applet archlinux-wallpaper
 	qt5ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
 	zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
-	neovim neofetch alacritty meld chezmoi rsync tmux ranger ncdu zip unzip cloc
+	neovim neofetch alacritty meld chezmoi rsync tmux ranger ncdu zip unzip cloc pwgen
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
 	dbeaver remmina libvncserver freerdp doxygen graphviz plantuml libreoffice-fresh
 PKGS
 )
-arch_backup /etc/pacman.d/mirrorlist
-arch_backup /etc/xdg/reflector/reflector.conf
-sudo sed -i "s/# --country France,Germany/--country 'Canada,United States'/g" /etc/xdg/reflector/reflector.conf
 sudo systemctl enable ly.service
 sudo systemctl enable paccache.timer
 sudo systemctl enable reflector.timer
@@ -105,3 +107,4 @@ while [ $# -gt 0 ]; do
 	esac
 	shift
 done
+sudo paccache -rk1

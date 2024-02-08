@@ -34,8 +34,11 @@ sudo systemctl enable paccache.timer
 sudo systemctl enable reflector.timer
 arch_backup /etc/environment
 arch_environment "XDG_CURRENT_DESKTOP=sway"
+arch_environment "XDG_SESSION_DESKTOP=sway"
 arch_environment "QT_QPA_PLATFORM=wayland"
 arch_environment "QT_QPA_PLATFORMTHEME=qt5ct"
+arch_environment "SDL_VIDEODRIVER=wayland"
+arch_environment "_JAVA_AWT_WM_NONREPARENTING=1"
 arch_environment "EDITOR=nvim"
 arch_environment "VISUAL=nvim"
 arch_backup /etc/ly/config.ini
@@ -85,6 +88,9 @@ while [ $# -gt 0 ]; do
 		print)
 			sudo pacman -Syu --needed cups cups-filters system-config-printer
 			paru -Syu --needed samsung-unified-driver
+			;;
+		flameshot)
+			paru -Syu --needed flameshot-git
 			;;
 		webex)
 			paru -Syu --needed webex-bin

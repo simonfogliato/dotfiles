@@ -1,4 +1,8 @@
 #!/bin/bash
+echo "arch.sh"
+echo "arch.sh [options]"
+echo "arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker"
+echo "sudo reboot"
 set -ex
 arch_backup() {
 	if [ ! -e $HOME/arch$1 ]; then

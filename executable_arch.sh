@@ -27,8 +27,8 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel
 	brightnessctl grim slurp copyq network-manager-applet archlinux-wallpaper
 	qt5ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
-	zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
-	neovim neofetch alacritty meld chezmoi rsync tmux ranger ncdu zip unzip cloc pwgen
+	alacritty zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
+	neovim neofetch meld chezmoi rsync tmux ranger ncdu zip unzip cloc pwgen jq
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
 	dbeaver remmina libvncserver freerdp doxygen graphviz plantuml libreoffice-fresh
 PKGS

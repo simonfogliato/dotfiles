@@ -1,5 +1,5 @@
 neofetch
-alias note="nvim note_`date +'%s'`.txt"
+alias note='nvim note_$(date +"%Y%m%d_%H%M%S_%N").txt'
 alias ls="/usr/bin/lsd --group-dirs first"
 alias la="ls -la"
 alias ll="ls -l"

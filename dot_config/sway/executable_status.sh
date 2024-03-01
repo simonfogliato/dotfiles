@@ -9,6 +9,8 @@ if [ "$(upower --enumerate | grep -c BAT)" -ne "0" ]; then
 	status_power="\"power\": \"`upower --show-info $(upower --enumerate | grep BAT) | grep percentage | awk '{print $2}'`\""
 	status_brightness="\"brightness\": \"`brightnessctl info | grep 'Current brightness' | awk '{ print $4}' | tr -d '()'`\""
 	echo "{ $status_power, $status_brightness, $status_audio, $status_sink, $status_source, $status_swaync, $status_epoch, $status_date }"
-else
+elif [ -z "$VIRTUAL_MACHINE" ]; then
 	echo "{ $status_audio, $status_sink, $status_source, $status_swaync, $status_epoch, $status_date }"
+else
+	echo "{ $status_swaync, $status_epoch, $status_date }"
 fi

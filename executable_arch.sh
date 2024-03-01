@@ -24,7 +24,7 @@ sudo sed -i "s/# --country France,Germany/--country 'Canada,United States'/g" /e
 sudo systemctl start reflector.service
 sudo pacman -Syu --needed $(cat <<-PKGS
 	ly git base-devel pacman-contrib inetutils man-db man-pages
-	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel
+	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel virt-what
 	brightnessctl grim slurp copyq network-manager-applet archlinux-wallpaper
 	qt5ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
 	alacritty zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras
@@ -45,6 +45,9 @@ arch_environment "SDL_VIDEODRIVER=wayland"
 arch_environment "_JAVA_AWT_WM_NONREPARENTING=1"
 arch_environment "EDITOR=nvim"
 arch_environment "VISUAL=nvim"
+if [ ! -z "`sudo virt-what`" ]; then
+	arch_environment "VIRTUAL_MACHINE=true"
+fi
 arch_backup /etc/ly/config.ini
 sudo sed -i 's/#animate = false/animate = true/g' /etc/ly/config.ini
 sudo sed -i 's/#animation = 0/animation = 1/g' /etc/ly/config.ini

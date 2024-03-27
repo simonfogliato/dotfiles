@@ -26,7 +26,7 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	ly git base-devel pacman-contrib inetutils man-db man-pages
 	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel virt-what
 	brightnessctl grim slurp copyq network-manager-applet archlinux-wallpaper
-	qt5ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
+	qt5ct qt6ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
 	alacritty zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras wl-clipboard
 	neovim neofetch meld chezmoi rsync tmux ranger ncdu zip unzip cloc pwgen jq
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
@@ -40,7 +40,7 @@ arch_backup /etc/environment
 arch_environment "XDG_CURRENT_DESKTOP=sway"
 arch_environment "XDG_SESSION_DESKTOP=sway"
 arch_environment "QT_QPA_PLATFORM=wayland"
-arch_environment "QT_QPA_PLATFORMTHEME=qt5ct"
+arch_environment "QT_QPA_PLATFORMTHEME=qt6ct"
 arch_environment "SDL_VIDEODRIVER=wayland"
 arch_environment "_JAVA_AWT_WM_NONREPARENTING=1"
 arch_environment "EDITOR=nvim"
@@ -56,6 +56,9 @@ sudo sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g' /etc/systemd/l
 sudo rm -f /usr/share/qt5ct/colors/darker_green.conf
 sudo cp /usr/share/qt5ct/colors/darker.conf /usr/share/qt5ct/colors/darker_green.conf
 sudo sed -i 's/#ff12608a,/#ff00aa00,/g' /usr/share/qt5ct/colors/darker_green.conf
+sudo rm -f /usr/share/qt6ct/colors/darker_green.conf
+sudo cp /usr/share/qt6ct/colors/darker.conf /usr/share/qt6ct/colors/darker_green.conf
+sudo sed -i 's/#ff12608a,/#ff00aa00,/g' /usr/share/qt6ct/colors/darker_green.conf
 sudo rm -rf /usr/share/themes/Breeze-Dark-Green
 sudo cp -r /usr/share/themes/Breeze-Dark /usr/share/themes/Breeze-Dark-Green
 sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-2.0/gtkrc

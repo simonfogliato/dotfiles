@@ -1,4 +1,23 @@
 fastfetch
+tidy() {
+	case $1 in
+		*.sh)
+			shfmt -ci -sr -s -w "$1"
+			shellharden --replace "$1"
+			shellcheck "$1"
+			;;
+		*.py)
+			black "$1"
+			pylint "$1"
+			;;
+		*.h | *.c)
+			uncrustify -c /usr/share/doc/uncrustify/examples/linux.cfg --replace --no-backup "$1"
+			;;
+		*.json)
+			jq . "$1" | sponge "$1"
+			;;
+	esac
+}
 alias note='nvim note_$(date +"%Y%m%d_%H%M%S_%N").txt'
 alias ls="/usr/bin/lsd --group-dirs first"
 alias la="ls -la"

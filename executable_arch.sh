@@ -5,8 +5,8 @@ echo "arch.sh [options]"
 echo "arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker"
 set -x
 arch_backup() {
-	if [ ! -e $HOME/arch$1 ]; then
-		mkdir -p $HOME/arch`dirname $1` && cp -n $1 $_
+	if [ ! -e "$HOME/arch$1" ]; then
+		mkdir -p "$HOME/arch$(dirname "$1")" && cp -n "$1" "$_"
 	fi
 }
 arch_environment() {
@@ -22,18 +22,19 @@ sudo pacman -Syu --needed reflector
 arch_backup /etc/xdg/reflector/reflector.conf
 sudo sed -i "s/# --country France,Germany/--country 'Canada,United States'/g" /etc/xdg/reflector/reflector.conf
 sudo systemctl start reflector.service
-sudo pacman -Syu --needed $(cat <<-PKGS
-	ly git base-devel pacman-contrib inetutils man-db man-pages
-	polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel virt-what
-	brightnessctl grim slurp copyq network-manager-applet archlinux-wallpaper
-	qt5ct qt6ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
-	alacritty zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras wl-clipboard
-	neovim fastfetch meld chezmoi rsync tmux ranger ncdu zip unzip pwgen jq
-	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
-	python-black python-pylint cmake uncrustify cloc
-	dbeaver remmina libvncserver freerdp doxygen graphviz plantuml libreoffice-fresh
-PKGS
-)
+sudo pacman -Syu --needed "$(
+	cat <<- PKGS
+		ly git base-devel pacman-contrib inetutils man-db man-pages
+		polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel virt-what
+		brightnessctl grim slurp copyq network-manager-applet archlinux-wallpaper
+		qt5ct qt6ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
+		alacritty zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras wl-clipboard
+		neovim fastfetch meld chezmoi rsync tmux ranger ncdu zip unzip pwgen moreutils
+		vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
+		python-black python-pylint cmake uncrustify cloc shellcheck shellharden shfmt jq
+		dbeaver remmina libvncserver freerdp doxygen graphviz plantuml libreoffice-fresh
+	PKGS
+)"
 sudo systemctl enable ly.service
 sudo systemctl enable paccache.timer
 sudo systemctl enable reflector.timer
@@ -46,7 +47,7 @@ arch_environment "SDL_VIDEODRIVER=wayland"
 arch_environment "_JAVA_AWT_WM_NONREPARENTING=1"
 arch_environment "EDITOR=nvim"
 arch_environment "VISUAL=nvim"
-if [ ! -z "`sudo virt-what`" ]; then
+if [ "$(sudo virt-what)" != "" ]; then
 	arch_environment "VIRTUAL_MACHINE=true"
 fi
 arch_backup /etc/ly/config.ini
@@ -65,28 +66,29 @@ sudo cp -r /usr/share/themes/Breeze-Dark /usr/share/themes/Breeze-Dark-Green
 sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-2.0/gtkrc
 sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-3.0/gtk.css
 sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-4.0/gtk.css
-cp /usr/share/color-schemes/BreezeDark.colors $HOME/.config/kdeglobals
-sed -i 's/61,174,233/0,170,0/g' $HOME/.config/kdeglobals
-magick /usr/share/backgrounds/archlinux/gritty.png -modulate 100,100,50 $HOME/.config/sway/gritty_green.png
+cp /usr/share/color-schemes/BreezeDark.colors "$HOME"/.config/kdeglobals
+sed -i 's/61,174,233/0,170,0/g' "$HOME"/.config/kdeglobals
+magick /usr/share/backgrounds/archlinux/gritty.png -modulate 100,100,50 "$HOME"/.config/sway/gritty_green.png
 if [ "$SHELL" != "/bin/zsh" ]; then
 	chsh -s /bin/zsh
 fi
-mkdir -p $HOME/arch/aur
-pushd $HOME/arch/aur
-if [ ! -d $HOME/arch/aur/paru ]; then
+mkdir -p "$HOME"/arch/aur
+pushd "$HOME"/arch/aur
+if [ ! -d "$HOME"/arch/aur/paru ]; then
 	git clone https://aur.archlinux.org/paru.git
-	pushd $HOME/arch/aur/paru
+	pushd "$HOME"/arch/aur/paru
 	makepkg -si
 	popd
 fi
 popd
-paru -Syu --needed $(cat <<-PKGS
-	swaync nwg-look beautyline
-	google-chrome
-PKGS
-)
+paru -Syu --needed "$(
+	cat <<- PKGS
+		swaync nwg-look beautyline
+		google-chrome
+	PKGS
+)"
 nwg-look -a
-mkdir -p $HOME/screenshots
+mkdir -p "$HOME"/screenshots
 while [ $# -gt 0 ]; do
 	case $1 in
 		mouse)
@@ -121,7 +123,7 @@ while [ $# -gt 0 ]; do
 		kvm)
 			sudo pacman -Syu --needed virt-manager qemu libvirt iptables-nft dnsmasq
 			sudo systemctl enable libvirtd.service
-			sudo usermod -a -G libvirt $(whoami)
+			sudo usermod -a -G libvirt "$(whoami)"
 			sudo virsh net-autostart default
 			;;
 		docker)

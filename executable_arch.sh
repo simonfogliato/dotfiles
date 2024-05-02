@@ -22,19 +22,7 @@ sudo pacman -Syu --needed reflector
 arch_backup /etc/xdg/reflector/reflector.conf
 sudo sed -i "s/# --country France,Germany/--country 'Canada,United States'/g" /etc/xdg/reflector/reflector.conf
 sudo systemctl start reflector.service
-sudo pacman -Syu --needed "$(
-	cat <<- PKGS
-		ly git base-devel pacman-contrib inetutils man-db man-pages
-		polkit sway swaybg swaylock swayidle xdg-desktop-portal-wlr fuzzel virt-what
-		brightnessctl grim slurp copyq network-manager-applet archlinux-wallpaper
-		qt5ct qt6ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
-		alacritty zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras wl-clipboard
-		neovim fastfetch meld chezmoi rsync tmux ranger ncdu zip unzip pwgen moreutils
-		vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
-		python-black python-pylint cmake uncrustify cloc shellcheck shellharden shfmt jq
-		dbeaver remmina libvncserver freerdp doxygen graphviz plantuml libreoffice-fresh
-	PKGS
-)"
+sudo pacman -Syu --needed "$(cat "$HOME"/pacman.txt)"
 sudo systemctl enable ly.service
 sudo systemctl enable paccache.timer
 sudo systemctl enable reflector.timer
@@ -81,12 +69,7 @@ if [ ! -d "$HOME"/arch/aur/paru ]; then
 	popd
 fi
 popd
-paru -Syu --needed "$(
-	cat <<- PKGS
-		swaync nwg-look beautyline
-		google-chrome
-	PKGS
-)"
+paru -Syu --needed "$(cat "$HOME"/paru.txt)"
 nwg-look -a
 mkdir -p "$HOME"/screenshots
 while [ $# -gt 0 ]; do

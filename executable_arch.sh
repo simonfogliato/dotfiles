@@ -28,8 +28,9 @@ sudo pacman -Syu --needed $(cat <<-PKGS
 	brightnessctl grim slurp copyq network-manager-applet archlinux-wallpaper
 	qt5ct qt6ct gnome-themes-extra breeze breeze-gtk ttf-hack ttf-hack-nerd xcursor-comix
 	alacritty zsh grml-zsh-config lsd awesome-terminal-fonts bat bat-extras wl-clipboard
-	neovim neofetch meld chezmoi rsync tmux ranger ncdu zip unzip cloc pwgen jq
+	neovim fastfetch meld chezmoi rsync tmux ranger ncdu zip unzip pwgen jq
 	vlc yt-dlp firefox pcmanfm-gtk3 gvfs eog gimp imagemagick
+	python-black python-pylint cmake uncrustify cloc
 	dbeaver remmina libvncserver freerdp doxygen graphviz plantuml libreoffice-fresh
 PKGS
 )

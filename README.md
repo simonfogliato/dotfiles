@@ -11,3 +11,9 @@ chezmoi init --apply simonfogliato
 # ./arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker
 sudo reboot
 ```
+
+## Develop
+```bash
+chezmoi cd
+git remote set-url origin git@github.com:simonfogliato/dotfiles.git
+```

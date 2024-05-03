@@ -22,7 +22,7 @@ sudo pacman -Syu --needed reflector
 arch_backup /etc/xdg/reflector/reflector.conf
 sudo sed -i "s/# --country France,Germany/--country 'Canada,United States'/g" /etc/xdg/reflector/reflector.conf
 sudo systemctl start reflector.service
-sudo pacman -Syu --needed "$(cat "$HOME"/pacman.txt)"
+xargs -a "$HOME"/pacman.txt sudo pacman -Syu --needed
 sudo systemctl enable ly.service
 sudo systemctl enable paccache.timer
 sudo systemctl enable reflector.timer
@@ -69,7 +69,7 @@ if [ ! -d "$HOME"/arch/aur/paru ]; then
 	popd
 fi
 popd
-paru -Syu --needed "$(cat "$HOME"/paru.txt)"
+xargs -a "$HOME"/paru.txt paru -Syu --needed
 nwg-look -a
 mkdir -p "$HOME"/screenshots
 while [ $# -gt 0 ]; do

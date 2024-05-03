@@ -68,6 +68,7 @@ virt-what
 vlc
 wl-clipboard
 xcursor-comix
+xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 yt-dlp
 zip

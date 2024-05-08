@@ -57,6 +57,8 @@ sudo sed -i 's/#3daee9/#00aa00/g' /usr/share/themes/Breeze-Dark-Green/gtk-4.0/gt
 cp /usr/share/color-schemes/BreezeDark.colors "$HOME"/.config/kdeglobals
 sed -i 's/61,174,233/0,170,0/g' "$HOME"/.config/kdeglobals
 magick /usr/share/backgrounds/archlinux/gritty.png -modulate 100,100,50 "$HOME"/.config/sway/gritty_green.png
+mkdir -p "$HOME"/.config/chezmoi
+cp "$HOME"/chezmoi.toml "$HOME"/.config/chezmoi/chezmoi.toml
 if [ "$SHELL" != "/bin/zsh" ]; then
 	chsh -s /bin/zsh
 fi

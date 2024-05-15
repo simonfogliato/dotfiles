@@ -62,6 +62,13 @@ cp "$HOME"/chezmoi.toml "$HOME"/.config/chezmoi/chezmoi.toml
 if [ "$SHELL" != "/bin/zsh" ]; then
 	chsh -s /bin/zsh
 fi
+git config --global core.editor nvim
+git config --global diff.tool batdiff
+git config --global difftool.prompt false
+git config --global difftool.batdiff.cmd 'batdiff $LOCAL $REMOTE'
+if [ ! -e "$HOME"/.ssh/id_ed25519.pub ]; then
+	ssh-keygen -t ed25519
+fi
 mkdir -p "$HOME"/arch/aur
 pushd "$HOME"/arch/aur
 if [ ! -d "$HOME"/arch/aur/paru ]; then

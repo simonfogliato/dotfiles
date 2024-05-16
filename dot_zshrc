@@ -1,4 +1,5 @@
 fastfetch
+unsetopt share_history
 tidy() {
 	case $1 in
 		*.sh)

@@ -280,6 +280,8 @@ bindsym $mod+Shift+n exec swaync-client -d
 bindsym $mod+n exec swaync-client -t -sw
 bindsym $mod+q exec swaylock
 bindsym $mod+m output "HDMI-A-1" toggle
+bindsym $mod+o exec systemctl reboot
+bindsym $mod+p exec systemctl poweroff
 exec swaync
 exec nm-applet --indicator
 exec copyq --start-server

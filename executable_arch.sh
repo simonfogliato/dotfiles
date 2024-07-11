@@ -40,7 +40,7 @@ if [ "$(sudo virt-what)" != "" ]; then
 fi
 arch_backup /etc/ly/config.ini
 sudo sed -i 's/#animate = false/animate = true/g' /etc/ly/config.ini
-sudo sed -i 's/#animation = 0/animation = 1/g' /etc/ly/config.ini
+sudo sed -i 's/animation = none/animation = matrix/g' /etc/ly/config.ini
 arch_backup /etc/systemd/logind.conf
 sudo sed -i 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/g' /etc/systemd/logind.conf
 sudo rm -f /usr/share/qt5ct/colors/darker_green.conf

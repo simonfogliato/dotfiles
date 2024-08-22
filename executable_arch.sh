@@ -118,7 +118,7 @@ while [ $# -gt 0 ]; do
 			sudo virsh net-autostart default
 			;;
 		docker)
-			sudo pacman -Syu --needed docker docker-compose
+			sudo pacman -Syu --needed docker docker-compose docker-buildx
 			sudo systemctl enable docker.service
 			;;
 	esac

@@ -126,5 +126,6 @@ while [ $# -gt 0 ]; do
 done
 sudo paccache -rk1
 sudo pacdiff
+paru -Scca
 set +x
 echo "sudo reboot"

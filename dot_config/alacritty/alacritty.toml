@@ -4,7 +4,7 @@ size = 10.0
 [mouse]
 hide_when_typing = true
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 
 [window]
@@ -40,3 +40,5 @@ blue    = '#1e90ff'
 magenta = '#ff00ff'
 cyan    = '#00ffff'
 white   = '#ffffff'
+
+[terminal]

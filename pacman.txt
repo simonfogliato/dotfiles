@@ -1,3 +1,4 @@
+7zip
 alacritty
 archlinux-wallpaper
 awesome-terminal-fonts

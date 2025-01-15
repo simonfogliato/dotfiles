@@ -23,6 +23,7 @@ fuzzel
 gimp
 git
 gnome-themes-extra
+go
 graphviz
 grim
 grml-zsh-config

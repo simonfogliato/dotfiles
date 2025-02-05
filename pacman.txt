@@ -50,6 +50,7 @@ polkit
 pwgen
 python-black
 python-pylint
+python-virtualenv
 qt5ct
 qt6ct
 ranger

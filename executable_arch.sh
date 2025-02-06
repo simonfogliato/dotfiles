@@ -2,7 +2,7 @@
 set -e
 echo "arch.sh"
 echo "arch.sh [options]"
-echo "arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker"
+echo "arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker github"
 set -x
 arch_backup() {
 	if [ ! -e "$HOME/arch$1" ]; then
@@ -120,6 +120,10 @@ while [ $# -gt 0 ]; do
 		docker)
 			sudo pacman -Syu --needed docker docker-compose docker-buildx
 			sudo systemctl enable docker.service
+			;;
+		github)
+			sudo pacman -Syu --needed nodejs
+			git clone https://github.com/github/copilot.vim.git "$HOME"/.config/nvim/pack/github/start/copilot.vim
 			;;
 	esac
 	shift

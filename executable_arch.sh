@@ -2,7 +2,7 @@
 set -e
 echo "arch.sh"
 echo "arch.sh [options]"
-echo "arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker github"
+echo "arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker photorec android github"
 set -x
 arch_backup() {
 	if [ ! -e "$HOME/arch$1" ]; then
@@ -120,6 +120,12 @@ while [ $# -gt 0 ]; do
 		docker)
 			sudo pacman -Syu --needed docker docker-compose docker-buildx
 			sudo systemctl enable docker.service
+			;;
+		photorec)
+			sudo pacman -Syu --needed testdisk
+			;;
+		android)
+			sudo pacman -Syu --needed android-file-transfer
 			;;
 		github)
 			sudo pacman -Syu --needed nodejs

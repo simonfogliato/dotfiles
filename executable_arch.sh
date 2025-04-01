@@ -2,7 +2,7 @@
 set -e
 echo "arch.sh"
 echo "arch.sh [options]"
-echo "arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker photorec android github"
+echo "arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker photorec exiftool android github"
 set -x
 arch_backup() {
 	if [ ! -e "$HOME/arch$1" ]; then
@@ -123,6 +123,9 @@ while [ $# -gt 0 ]; do
 			;;
 		photorec)
 			sudo pacman -Syu --needed testdisk
+			;;
+		exiftool)
+			sudo pacman -Syu --needed perl-image-exiftool
 			;;
 		android)
 			sudo pacman -Syu --needed android-file-transfer

@@ -8,7 +8,7 @@ cd ~
 chezmoi init --apply simonfogliato
 ./arch.sh
 # ./arch.sh [options]
-# ./arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker
+# ./arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker photorec exiftool android github
 sudo reboot
 ```
 

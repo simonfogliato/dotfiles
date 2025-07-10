@@ -71,6 +71,7 @@ uncrustify
 unzip
 virt-what
 vlc
+vlc-plugins-all
 wl-clipboard
 xcursor-comix
 xdg-desktop-portal-gtk

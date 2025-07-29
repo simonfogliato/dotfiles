@@ -5,6 +5,7 @@ awesome-terminal-fonts
 base-devel
 bat
 bat-extras
+bind
 breeze
 breeze-gtk
 brightnessctl

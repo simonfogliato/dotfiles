@@ -2,7 +2,7 @@
 set -e
 echo "arch.sh"
 echo "arch.sh [options]"
-echo "arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker photorec exiftool android github"
+echo "arch.sh mouse ssh print flameshot webex uefi vb vb-lts kvm docker aws photorec exiftool android github"
 set -x
 arch_backup() {
 	if [ ! -e "$HOME/arch$1" ]; then
@@ -120,6 +120,9 @@ while [ $# -gt 0 ]; do
 		docker)
 			sudo pacman -Syu --needed docker docker-compose docker-buildx
 			sudo systemctl enable docker.service
+			;;
+		aws)
+			sudo pacman -Syu --needed aws-cli-v2 terraform
 			;;
 		photorec)
 			sudo pacman -Syu --needed testdisk
